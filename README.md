@@ -16,13 +16,17 @@ will update soon.
 *JavaScript SDK
 
 You can find the instructions and source code from following repository. 
+
 https://github.com/Square-Mobile/ShoutOUT-SDK-JavaScript
+
 https://github.com/Square-Mobile/ShoutOUT-SDK-JavaScript/wiki
 
 *PHP SDK
 
 Required PHP V5.0 or above. All the methods will return Response object which having properties, http status and the response data received from the API. You can use those details as described in the relevant method. You can find the instructions and source code from following repository. 
+
 https://github.com/Square-Mobile/ShoutOUT-SDK-PHP
+
 https://github.com/Square-Mobile/ShoutOUT-SDK-PHP/wiki
 
 
@@ -54,6 +58,7 @@ Standard name for represent a Mobile number.
 ##Security
 
 All the API requests should be signed, before send. If you use the SDK, the signing process will be automatically handled. To implement signing process, please go through following guide.
+
 http://docs.aws.amazon.com/general/latest/gr/sigv4_signing.html
 
 
@@ -69,12 +74,10 @@ Data Type: application/json
 
 Payload:  
 
- `{
-   "msisdn":mobile,
-   "name":name,
-   "email":email,
-   "group_ids":[groupId]
- }`
+	 `{"msisdn":mobile,
+	   "name":name,
+	   "email":email,
+	   "group_ids":[groupId]}`
 
 Required Fields:
 
@@ -89,8 +92,7 @@ You can provide any other alpha arbitrary fields as you wish.
 			
                 eg: {"group_ids":["413"],"msisdn":"94777123456","name":"Michael"}
                 
-
-		*400: Parse error. Can not parse the request. Check required parameters are present.
+                *400: Parse error. Can not parse the request. Check required parameters are present.
 
 		*401: Authorization failed. Check your credentials.
 
