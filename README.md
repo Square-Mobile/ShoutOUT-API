@@ -30,15 +30,15 @@ This document provide required details to connect with ShoutOUT REST API for thi
 
 ## Parameters
 
-* Api Key : Unique id assigned to the account. *
+* **Api Key** : Unique id assigned to the account. *
 
-* Access Key : Access key to access the API. *
+* **Access Key** : Access key to access the API. *
 
-* Secret Key : Secret key to access the API. *
+* **Secret Key** : Secret key to access the API. *
 
-* End Point : API base url. *
+* **End Point** : API base url. *
 
-* MSISDN : Standard name for represent a Mobile number.
+* **MSISDN** : Standard name for represent a Mobile number.
 
     **NOTE:** The parameters indicated with ‘*’ will be provided with your account.
 
