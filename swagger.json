@@ -1,0 +1,475 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "2016-01-31T08:22:33Z",
+        "title": "ShoutOUT"
+    },
+    "host": "lwel2lpoy3.execute-api.us-east-1.amazonaws.com",
+    "basePath": "/v6",
+    "schemes": [
+        "https"
+    ],
+    "paths": {
+        "/activities": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "x-api-key",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "Activity",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Activity"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200 response",
+                        "schema": {
+                            "$ref": "#/definitions/Response"
+                        },
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "sigv4": []
+                    },
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/activities/records": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "x-api-key",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "ActivityRecord",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ActivityRecord"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200 response",
+                        "schema": {
+                            "$ref": "#/definitions/Response"
+                        },
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "sigv4": []
+                    },
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/contacts": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response",
+                        "schema": {
+                            "$ref": "#/definitions/Contact"
+                        },
+                        "headers": {}
+                    }
+                },
+                "security": [
+                    {
+                        "sigv4": []
+                    },
+                    {
+                        "api_key": []
+                    }
+                ]
+            },
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "x-api-key",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "Contact",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Contact"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "201 response",
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "400 response",
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "401 response",
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "500 response",
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            },
+            "put": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "x-api-key",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "Contact",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Contact"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "201 response",
+                        "schema": {
+                            "$ref": "#/definitions/Contact"
+                        },
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "400 response",
+                        "schema": {
+                            "$ref": "#/definitions/Response"
+                        },
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "401 response",
+                        "schema": {
+                            "$ref": "#/definitions/Response"
+                        },
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "500 response",
+                        "schema": {
+                            "$ref": "#/definitions/Response"
+                        },
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "sigv4": []
+                    },
+                    {
+                        "api_key": []
+                    }
+                ]
+            },
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "x-api-key",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "app_id",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "Contact",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Contact"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200 response",
+                        "schema": {
+                            "$ref": "#/definitions/Response"
+                        },
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "400 response",
+                        "schema": {
+                            "$ref": "#/definitions/Response"
+                        },
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "401 response",
+                        "schema": {
+                            "$ref": "#/definitions/Response"
+                        },
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "500 response",
+                        "schema": {
+                            "$ref": "#/definitions/Response"
+                        },
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        },
+        "/contacts/list": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "x-api-key",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200 response",
+                        "schema": {
+                            "$ref": "#/definitions/ContactList"
+                        },
+                        "headers": {}
+                    }
+                },
+                "security": [
+                    {
+                        "sigv4": []
+                    },
+                    {
+                        "api_key": []
+                    }
+                ]
+            }
+        }
+    },
+    "securityDefinitions": {
+        "api_key": {
+            "type": "apiKey",
+            "name": "x-api-key",
+            "in": "header"
+        },
+        "sigv4": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header",
+            "x-amazon-apigateway-authtype": "awsSigv4"
+        }
+    },
+    "definitions": {
+        "Response": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "code": {
+                    "type": "integer"
+                }
+            }
+        },
+        "ActivityRecord": {
+            "type": "object",
+            "required": [
+                "user_id"
+            ],
+            "properties": {
+                "user_id": {
+                    "type": "string"
+                },
+                "activity_id": {
+                    "type": "string"
+                },
+                "activity_name": {
+                    "type": "string"
+                },
+                "activity_data": {
+                    "type": "object",
+                    "properties": {}
+                }
+            }
+        },
+        "Activity": {
+            "type": "object",
+            "required": [
+                "user_id"
+            ],
+            "properties": {
+                "user_id": {
+                    "type": "string"
+                },
+                "activity_id": {
+                    "type": "string"
+                },
+                "activity_name": {
+                    "type": "string"
+                },
+                "activity_data": {
+                    "type": "object",
+                    "properties": {}
+                }
+            }
+        },
+        "ContactList": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {}
+            }
+        },
+        "Contact": {
+            "type": "object",
+            "required": [
+                "user_id"
+            ],
+            "properties": {
+                "user_id": {
+                    "type": "object",
+                    "properties": {
+                        "s": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
