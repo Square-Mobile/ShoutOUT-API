@@ -1,123 +1,15 @@
 {
   "swagger": "2.0",
   "info": {
-    "version": "2016-02-29T08:52:34Z",
+    "version": "2016-05-02T13:02:33Z",
     "title": "ShoutOUT"
   },
-  "host": "lwel2lpoy3.execute-api.us-east-1.amazonaws.com",
-  "basePath": "/v6",
+  "host": "amdimbh5tf.execute-api.us-east-1.amazonaws.com",
+  "basePath": "/v7",
   "schemes": [
     "https"
   ],
   "paths": {
-    "/accounts/signup": {
-      "post": {
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "profile",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "Account",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Account"
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "201 response",
-            "schema": {
-              "$ref": "#/definitions/Account"
-            },
-            "headers": {
-              "Access-Control-Allow-Origin": {
-                "type": "string"
-              }
-            }
-          },
-          "400": {
-            "description": "400 response",
-            "schema": {
-              "$ref": "#/definitions/Response"
-            },
-            "headers": {
-              "Access-Control-Allow-Origin": {
-                "type": "string"
-              }
-            }
-          },
-          "401": {
-            "description": "401 response",
-            "schema": {
-              "$ref": "#/definitions/Response"
-            },
-            "headers": {
-              "Access-Control-Allow-Origin": {
-                "type": "string"
-              }
-            }
-          },
-          "500": {
-            "description": "500 response",
-            "schema": {
-              "$ref": "#/definitions/Response"
-            },
-            "headers": {
-              "Access-Control-Allow-Origin": {
-                "type": "string"
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "api_key": []
-          }
-        ]
-      },
-      "options": {
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "200 response",
-            "schema": {
-              "$ref": "#/definitions/Empty"
-            },
-            "headers": {
-              "Access-Control-Allow-Origin": {
-                "type": "string"
-              },
-              "Access-Control-Allow-Methods": {
-                "type": "string"
-              },
-              "Access-Control-Allow-Headers": {
-                "type": "string"
-              }
-            }
-          }
-        }
-      }
-    },
     "/activities": {
       "post": {
         "consumes": [
@@ -128,7 +20,7 @@
         ],
         "parameters": [
           {
-            "name": "x-api-key",
+            "name": "Authorization",
             "in": "header",
             "required": false,
             "type": "string"
@@ -157,114 +49,9 @@
         },
         "security": [
           {
-            "sigv4": []
-          },
-          {
-            "api_key": []
+            "ShoutOUTCustomAuthorizer": []
           }
-        ],
-        "x-postman-meta": {
-          "helperAttributes": {
-            "saveHelper": true,
-            "secretKey": "{{aws_secret_access_key}}",
-            "accessKey": "{{aws_access_key_id}}"
-          },
-          "currentHelper": "awsSigV4"
-        }
-      },
-      "options": {
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "200 response",
-            "schema": {
-              "$ref": "#/definitions/Empty"
-            },
-            "headers": {
-              "Access-Control-Allow-Origin": {
-                "type": "string"
-              },
-              "Access-Control-Allow-Methods": {
-                "type": "string"
-              },
-              "Access-Control-Allow-Headers": {
-                "type": "string"
-              }
-            }
-          }
-        }
-      }
-    },
-    "/activities/list": {
-      "get": {
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "200 response",
-            "schema": {
-              "$ref": "#/definitions/Empty"
-            },
-            "headers": {
-              "Access-Control-Allow-Origin": {
-                "type": "string"
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "sigv4": []
-          },
-          {
-            "api_key": []
-          }
-        ],
-        "x-postman-meta": {
-          "helperAttributes": {
-            "saveHelper": true,
-            "secretKey": "{{aws_secret_access_key}}",
-            "accessKey": "{{aws_access_key_id}}"
-          },
-          "currentHelper": "awsSigV4"
-        }
-      },
-      "options": {
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "200 response",
-            "schema": {
-              "$ref": "#/definitions/Empty"
-            },
-            "headers": {
-              "Access-Control-Allow-Origin": {
-                "type": "string"
-              },
-              "Access-Control-Allow-Methods": {
-                "type": "string"
-              },
-              "Access-Control-Allow-Headers": {
-                "type": "string"
-              }
-            }
-          }
-        }
+        ]
       }
     },
     "/activities/records": {
@@ -277,7 +64,7 @@
         ],
         "parameters": [
           {
-            "name": "x-api-key",
+            "name": "Authorization",
             "in": "header",
             "required": false,
             "type": "string"
@@ -304,129 +91,30 @@
             }
           },
           "401": {
-            "description": "401 response",
-            "headers": {}
+            "description": "401 response"
           },
           "500": {
-            "description": "500 response",
-            "headers": {}
+            "description": "500 response"
           }
         },
         "security": [
           {
-            "sigv4": []
-          },
-          {
-            "api_key": []
+            "ShoutOUTCustomAuthorizer": []
           }
-        ],
-        "x-postman-meta": {
-          "helperAttributes": {
-            "saveHelper": true,
-            "secretKey": "{{aws_secret_access_key}}",
-            "accessKey": "{{aws_access_key_id}}"
-          },
-          "currentHelper": "awsSigV4"
-        }
+        ]
       },
-      "options": {
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "200 response",
-            "schema": {
-              "$ref": "#/definitions/Empty"
-            },
-            "headers": {
-              "Access-Control-Allow-Origin": {
-                "type": "string"
-              },
-              "Access-Control-Allow-Methods": {
-                "type": "string"
-              },
-              "Access-Control-Allow-Headers": {
-                "type": "string"
-              }
-            }
-          }
-        }
-      }
     },
     "/contacts": {
-      "get": {
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "user_id",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "mobile_number",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "id",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "200 response",
-            "schema": {
-              "$ref": "#/definitions/Contact"
-            },
-            "headers": {}
-          },
-          "401": {
-            "description": "401 response",
-            "headers": {}
-          },
-          "500": {
-            "description": "500 response",
-            "headers": {}
-          }
-        },
-        "security": [
-          {
-            "sigv4": []
-          },
-          {
-            "api_key": []
-          }
-        ],
-        "x-postman-meta": {
-          "helperAttributes": {
-            "saveHelper": true,
-            "secretKey": "{{aws_secret_access_key}}",
-            "accessKey": "{{aws_access_key_id}}"
-          },
-          "currentHelper": "awsSigV4"
-        }
-      },
       "post": {
         "consumes": [
           "application/json"
         ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "name": "x-api-key",
+            "name": "Authorization",
             "in": "header",
             "required": false,
             "type": "string"
@@ -441,16 +129,8 @@
           }
         ],
         "responses": {
-          "201": {
-            "description": "201 response",
-            "headers": {
-              "Access-Control-Allow-Origin": {
-                "type": "string"
-              }
-            }
-          },
-          "400": {
-            "description": "400 response",
+          "200": {
+            "description": "200 response",
             "headers": {
               "Access-Control-Allow-Origin": {
                 "type": "string"
@@ -476,7 +156,7 @@
         },
         "security": [
           {
-            "api_key": []
+            "ShoutOUTCustomAuthorizer": []
           }
         ]
       },
@@ -489,7 +169,7 @@
         ],
         "parameters": [
           {
-            "name": "x-api-key",
+            "name": "Authorization",
             "in": "header",
             "required": false,
             "type": "string"
@@ -551,195 +231,9 @@
         },
         "security": [
           {
-            "sigv4": []
-          },
-          {
-            "api_key": []
-          }
-        ],
-        "x-postman-meta": {
-          "helperAttributes": {
-            "saveHelper": true,
-            "secretKey": "{{aws_secret_access_key}}",
-            "accessKey": "{{aws_access_key_id}}"
-          },
-          "currentHelper": "awsSigV4"
-        }
-      },
-      "delete": {
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "app_id",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "Contact",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Contact"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "200 response",
-            "schema": {
-              "$ref": "#/definitions/Response"
-            },
-            "headers": {
-              "Access-Control-Allow-Origin": {
-                "type": "string"
-              }
-            }
-          },
-          "400": {
-            "description": "400 response",
-            "schema": {
-              "$ref": "#/definitions/Response"
-            },
-            "headers": {
-              "Access-Control-Allow-Origin": {
-                "type": "string"
-              }
-            }
-          },
-          "401": {
-            "description": "401 response",
-            "schema": {
-              "$ref": "#/definitions/Response"
-            },
-            "headers": {
-              "Access-Control-Allow-Origin": {
-                "type": "string"
-              }
-            }
-          },
-          "500": {
-            "description": "500 response",
-            "schema": {
-              "$ref": "#/definitions/Response"
-            },
-            "headers": {
-              "Access-Control-Allow-Origin": {
-                "type": "string"
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "api_key": []
+            "ShoutOUTCustomAuthorizer": []
           }
         ]
-      },
-      "options": {
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "200 response",
-            "schema": {
-              "$ref": "#/definitions/Empty"
-            },
-            "headers": {
-              "Access-Control-Allow-Origin": {
-                "type": "string"
-              },
-              "Access-Control-Allow-Methods": {
-                "type": "string"
-              },
-              "Access-Control-Allow-Headers": {
-                "type": "string"
-              }
-            }
-          }
-        }
-      }
-    },
-    "/contacts/list": {
-      "get": {
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "x-api-key",
-            "in": "header",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "200 response",
-            "schema": {
-              "$ref": "#/definitions/ContactList"
-            },
-            "headers": {
-              "Access-Control-Allow-Origin": {
-                "type": "string"
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "sigv4": []
-          },
-          {
-            "api_key": []
-          }
-        ],
-        "x-postman-meta": {
-          "helperAttributes": {
-            "saveHelper": true,
-            "secretKey": "{{aws_secret_access_key}}",
-            "accessKey": "{{aws_access_key_id}}"
-          },
-          "currentHelper": "awsSigV4"
-        }
-      },
-      "options": {
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "200 response",
-            "schema": {
-              "$ref": "#/definitions/Empty"
-            },
-            "headers": {
-              "Access-Control-Allow-Origin": {
-                "type": "string"
-              },
-              "Access-Control-Allow-Methods": {
-                "type": "string"
-              },
-              "Access-Control-Allow-Headers": {
-                "type": "string"
-              }
-            }
-          }
-        }
       }
     },
     "/messages": {
@@ -752,7 +246,7 @@
         ],
         "parameters": [
           {
-            "name": "x-api-key",
+            "name": "Authorization",
             "in": "header",
             "required": false,
             "type": "string"
@@ -814,96 +308,21 @@
         },
         "security": [
           {
-            "sigv4": []
-          },
-          {
-            "api_key": []
+            "ShoutOUTCustomAuthorizer": []
           }
-        ],
-        "x-postman-meta": {
-          "helperAttributes": {
-            "saveHelper": true,
-            "secretKey": "{{aws_secret_access_key}}",
-            "accessKey": "{{aws_access_key_id}}"
-          },
-          "currentHelper": "awsSigV4"
-        }
-      },
-      "options": {
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "200 response",
-            "schema": {
-              "$ref": "#/definitions/Empty"
-            },
-            "headers": {
-              "Access-Control-Allow-Origin": {
-                "type": "string"
-              },
-              "Access-Control-Allow-Methods": {
-                "type": "string"
-              },
-              "Access-Control-Allow-Headers": {
-                "type": "string"
-              }
-            }
-          }
-        }
+        ]
       }
     }
   },
   "securityDefinitions": {
-    "api_key": {
-      "type": "apiKey",
-      "name": "x-api-key",
-      "in": "header"
-    },
-    "sigv4": {
+    "ShoutOUTCustomAuthorizer": {
       "type": "apiKey",
       "name": "Authorization",
       "in": "header",
-      "x-amazon-apigateway-authtype": "awsSigv4"
+      "x-amazon-apigateway-authtype": "custom"
     }
   },
   "definitions": {
-    "Response": {
-      "type": "object",
-      "properties": {
-        "message": {
-          "type": "string"
-        },
-        "code": {
-          "type": "integer"
-        }
-      }
-    },
-    "Account": {
-      "type": "object",
-      "required": [
-        "username"
-      ],
-      "properties": {
-        "username": {
-          "type": "string"
-        },
-        "source": {
-          "type": "string"
-        },
-        "email": {
-          "type": "string"
-        },
-        "mobile": {
-          "type": "string"
-        }
-      }
-    },
-    "Empty": {
-      "type": "object"
-    },
     "Message": {
       "type": "object",
       "required": [
@@ -963,27 +382,6 @@
         }
       }
     },
-    "ActivityRecord": {
-      "type": "object",
-      "required": [
-        "user_id"
-      ],
-      "properties": {
-        "user_id": {
-          "type": "string"
-        },
-        "activity_id": {
-          "type": "string"
-        },
-        "activity_name": {
-          "type": "string"
-        },
-        "activity_data": {
-          "type": "object",
-          "properties": {}
-        }
-      }
-    },
     "Activity": {
       "type": "object",
       "required": [
@@ -1009,26 +407,38 @@
         }
       }
     },
-    "ContactList": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {}
+    "Contact": {
+      "type": "object"
+    },
+    "Response": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer"
+        }
       }
     },
-    "Contact": {
+    "ActivityRecord": {
       "type": "object",
       "required": [
         "user_id"
       ],
       "properties": {
         "user_id": {
+          "type": "string"
+        },
+        "activity_id": {
+          "type": "string"
+        },
+        "activity_name": {
+          "type": "string"
+        },
+        "activity_data": {
           "type": "object",
-          "properties": {
-            "s": {
-              "type": "string"
-            }
-          }
+          "properties": {}
         }
       }
     }
