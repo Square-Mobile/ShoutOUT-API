@@ -1,414 +1,549 @@
 {
-  "swagger": "2.0",
-  "info": {
-    "description": "ShoutOUT API",
-    "version": "1.0.0",
-    "title": "ShoutOUT",
-    "contact": {}
-  },
-  "host": "amdimbh5tf.execute-api.us-east-1.amazonaws.com",
-  "basePath": "/v7",
-  "tags": [
-    {
-      "name": "Messages",
-      "description": ""
+    "swagger": "2.0",
+    "info": {
+        "version": "2016-07-04T07:13:59Z",
+        "title": "ShoutOUT"
     },
-    {
-      "name": "Contacts"
+    "host": "amdimbh5tf.execute-api.us-east-1.amazonaws.com",
+    "basePath": "/v7",
+    "schemes": [
+        "https"
+    ],
+    "paths": {
+        "/activities": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "Activity",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Activity"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200 response",
+                        "schema": {
+                            "$ref": "#/definitions/Response"
+                        },
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "ShoutOUTCustomAuthorizer": []
+                    }
+                ]
+            }
+        },
+        "/activities/records": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "x-api-key",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "ActivityRecord",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ActivityRecord"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200 response",
+                        "schema": {
+                            "$ref": "#/definitions/Response"
+                        },
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "401 response"
+                    },
+                    "500": {
+                        "description": "500 response"
+                    }
+                },
+                "security": [
+                    {
+                        "ShoutOUTCustomAuthorizer": []
+                    }
+                ]
+            }
+        },
+        "/contacts": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "Contact",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Contact"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200 response",
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "401 response",
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "500 response",
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "ShoutOUTCustomAuthorizer": []
+                    }
+                ]
+            },
+            "put": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "Contact",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Contact"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "201 response",
+                        "schema": {
+                            "$ref": "#/definitions/Contact"
+                        },
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "400 response",
+                        "schema": {
+                            "$ref": "#/definitions/Response"
+                        },
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "401 response",
+                        "schema": {
+                            "$ref": "#/definitions/Response"
+                        },
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "500 response",
+                        "schema": {
+                            "$ref": "#/definitions/Response"
+                        },
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "ShoutOUTCustomAuthorizer": []
+                    }
+                ]
+            }
+        },
+        "/contacts/list": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "ContactList",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ContactList"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200 response",
+                        "schema": {
+                            "$ref": "#/definitions/ContactList"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "ShoutOUTCustomAuthorizer": []
+                    }
+                ]
+            },
+            "put": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "ContactList",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ContactList"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200 response",
+                        "schema": {
+                            "$ref": "#/definitions/ContactList"
+                        },
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "ShoutOUTCustomAuthorizer": []
+                    }
+                ]
+            }
+        },
+        "/messages": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "Message",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Message"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "201 response",
+                        "schema": {
+                            "$ref": "#/definitions/MessageResponse"
+                        },
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "400 response",
+                        "schema": {
+                            "$ref": "#/definitions/Response"
+                        },
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "401 response",
+                        "schema": {
+                            "$ref": "#/definitions/Response"
+                        },
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "500 response",
+                        "schema": {
+                            "$ref": "#/definitions/Response"
+                        },
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "ShoutOUTCustomAuthorizer": []
+                    }
+                ]
+            }
+        }
     },
-    {
-      "name": "Activities"
+    "securityDefinitions": {
+        "ShoutOUTCustomAuthorizer": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header",
+            "x-amazon-apigateway-authtype": "custom"
+        }
+    },
+    "definitions": {
+        "Message": {
+            "type": "object",
+            "required": [
+                "content",
+                "destinations",
+                "source"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "source": {
+                    "type": "string"
+                },
+                "destinations": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "transports": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "sms"
+                        ]
+                    }
+                },
+                "content": {
+                    "type": "object",
+                    "properties": {
+                        "sms": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "MessageResponse": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "cost": {
+                    "type": "integer"
+                },
+                "balance": {
+                    "type": "integer"
+                },
+                "sent_on": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                }
+            }
+        },
+        "Activity": {
+            "type": "object",
+            "required": [
+                "template_id",
+                "title"
+            ],
+            "properties": {
+                "title": {
+                    "type": "string"
+                },
+                "template_id": {
+                    "type": "integer"
+                },
+                "points": {
+                    "type": "number"
+                },
+                "points_rate": {
+                    "type": "number"
+                },
+                "meta_data": {
+                    "type": "object",
+                    "properties": {}
+                }
+            }
+        },
+        "ContactList": {
+            "type": "object",
+            "properties": {
+                "Items": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
+                "LastEvaluatedKey": {
+                    "type": "object",
+                    "properties": {}
+                }
+            }
+        },
+        "Contact": {
+            "type": "object"
+        },
+        "Response": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "code": {
+                    "type": "integer"
+                }
+            }
+        },
+        "ActivityRecord": {
+            "type": "object",
+            "required": [
+                "user_id"
+            ],
+            "properties": {
+                "user_id": {
+                    "type": "string"
+                },
+                "activity_id": {
+                    "type": "string"
+                },
+                "activity_name": {
+                    "type": "string"
+                },
+                "activity_data": {
+                    "type": "object",
+                    "properties": {}
+                }
+            }
+        }
     }
-  ],
-  "schemes": [
-    "https"
-  ],
-  "paths": {
-    "/activities": {
-      "post": {
-        "tags": [
-          "Activities"
-        ],
-        "operationId": "postActivities",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": false,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "multi"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/Activity"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "200 response",
-            "schema": {
-              "$ref": "#/definitions/Response"
-            }
-          }
-        }
-      }
-    },
-    "/activities/records": {
-      "post": {
-        "tags": [
-          "Activities"
-        ],
-        "operationId": "postActivitiesRecords",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": false,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "multi"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/ActivityRecord"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "200 response",
-            "schema": {
-              "$ref": "#/definitions/Response"
-            }
-          },
-          "401": {
-            "description": "401 response"
-          },
-          "500": {
-            "description": "500 response"
-          }
-        }
-      }
-    },
-    "/contacts": {
-      "post": {
-        "tags": [
-          "Contacts"
-        ],
-        "operationId": "postContacts",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": false,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "multi"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/Contact"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "200 response"
-          },
-          "401": {
-            "description": "401 response"
-          },
-          "500": {
-            "description": "500 response"
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Contacts"
-        ],
-        "operationId": "putContacts",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": false,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "multi"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/Contact"
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "201 response",
-            "schema": {
-              "$ref": "#/definitions/Contact"
-            }
-          },
-          "400": {
-            "description": "400 response",
-            "schema": {
-              "$ref": "#/definitions/Response"
-            }
-          },
-          "401": {
-            "description": "401 response",
-            "schema": {
-              "$ref": "#/definitions/Response"
-            }
-          },
-          "500": {
-            "description": "500 response",
-            "schema": {
-              "$ref": "#/definitions/Response"
-            }
-          }
-        }
-      }
-    },
-    "/messages": {
-      "post": {
-        "tags": [
-          "Messages"
-        ],
-        "operationId": "postMessages",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "multi",
-            "x-example": "Ex:- Apikey <API_KEY>"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/Message"
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "201 response",
-            "schema": {
-              "$ref": "#/definitions/MessageResponse"
-            }
-          },
-          "400": {
-            "description": "400 response",
-            "schema": {
-              "$ref": "#/definitions/Response"
-            }
-          },
-          "401": {
-            "description": "401 response",
-            "schema": {
-              "$ref": "#/definitions/Response"
-            }
-          },
-          "500": {
-            "description": "500 response",
-            "schema": {
-              "$ref": "#/definitions/Response"
-            }
-          }
-        }
-      }
-    }
-  },
-  "definitions": {
-    "Activity": {
-      "type": "object",
-      "required": [
-        "template_id",
-        "title"
-      ],
-      "properties": {
-        "meta_data": {
-          "$ref": "#/definitions/Activity_Meta_data"
-        },
-        "points": {
-          "type": "number",
-          "format": "double"
-        },
-        "points_rate": {
-          "type": "number",
-          "format": "double"
-        },
-        "template_id": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "title": {
-          "type": "string"
-        }
-      }
-    },
-    "ActivityRecord": {
-      "type": "object",
-      "required": [
-        "user_id"
-      ],
-      "properties": {
-        "activity_data": {
-          "$ref": "#/definitions/ActivityRecord_Activity_data"
-        },
-        "activity_id": {
-          "type": "string"
-        },
-        "activity_name": {
-          "type": "string"
-        },
-        "user_id": {
-          "type": "string"
-        }
-      }
-    },
-    "ActivityRecord_Activity_data": {
-      "type": "object"
-    },
-    "Activity_Meta_data": {
-      "type": "object"
-    },
-    "Contact": {
-      "type": "object"
-    },
-    "Message": {
-      "type": "object",
-      "required": [
-        "content",
-        "destinations",
-        "source"
-      ],
-      "properties": {
-        "content": {
-          "$ref": "#/definitions/Message_Content"
-        },
-        "destinations": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "id": {
-          "type": "string"
-        },
-        "source": {
-          "type": "string"
-        },
-        "transports": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "MessageResponse": {
-      "type": "object",
-      "properties": {
-        "balance": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "cost": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "id": {
-          "type": "string"
-        },
-        "sent_on": {
-          "type": "string"
-        },
-        "status": {
-          "type": "string"
-        }
-      }
-    },
-    "Message_Content": {
-      "type": "object",
-      "properties": {
-        "sms": {
-          "type": "string"
-        }
-      }
-    },
-    "Response": {
-      "type": "object",
-      "properties": {
-        "code": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "message": {
-          "type": "string"
-        }
-      }
-    }
-  }
 }
