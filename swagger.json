@@ -511,7 +511,24 @@
             }
         },
         "Contact": {
-            "type": "object"
+            "type": "object",
+            "example":{
+              "name":{
+                "s":"Saman"
+              },
+              "mobile_number":{
+                "s":"94778766756"
+              },
+              "email":{
+                "s":"saman@test.com"
+                },
+                "tags":{
+                  "sS":["vegetarian","teacher"]
+                },
+                "weight":{
+                  "n":"65"
+                  }
+            }
         },
         "Response": {
             "type": "object",
