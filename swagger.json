@@ -13,7 +13,7 @@
         "/activities": {
             "post": {
               "tags":["Events"],
-              "description": "Create an Event",
+              "description": "Create an event",
                 "operationId": "createEvent",
                 "consumes": [
                     "application/json"
@@ -59,6 +59,9 @@
         },
         "/activities/records": {
             "post": {
+               "tags":["Activities"],
+              "description": "Create an activity for an event",
+                "operationId": "createActivity",
                 "consumes": [
                     "application/json"
                 ],
@@ -109,6 +112,9 @@
         },
         "/contacts": {
             "post": {
+               "tags":["Contacts"],
+              "description": "Create contact or replace if exisits",
+                "operationId": "createOrReplaceContact",
                 "consumes": [
                     "application/json"
                 ],
@@ -164,6 +170,9 @@
                 ]
             },
             "put": {
+              "tags":["Contacts"],
+              "description": "Create contact or update if exisits",
+                "operationId": "createOrUpdateContact",
                 "consumes": [
                     "application/json"
                 ],
@@ -241,6 +250,9 @@
         },
         "/contacts/list": {
             "post": {
+              "tags":["Contacts"],
+              "description": "Create contact list or replace if exisits",
+                "operationId": "createOrReplaceContactList",
                 "consumes": [
                     "application/json"
                 ],
@@ -278,6 +290,9 @@
                 ]
             },
             "put": {
+              "tags":["Contacts"],
+              "description": "Create contact list or update if exisits",
+                "operationId": "createOrUpdateContactList",
                 "consumes": [
                     "application/json"
                 ],
@@ -322,6 +337,10 @@
         },
         "/messages": {
             "post": {
+              "deprecated":true,
+              "tags":["Messages"],
+              "description": "Send a direct message",
+                "operationId": "sendMessage",
                 "consumes": [
                     "application/json"
                 ],
