@@ -12,6 +12,9 @@
     "paths": {
         "/activities": {
             "post": {
+              "tags":["Events"],
+              "description": "Create an Event",
+                "operationId": "createEvent",
                 "consumes": [
                     "application/json"
                 ],
@@ -22,7 +25,7 @@
                     {
                         "name": "Authorization",
                         "in": "header",
-                        "required": false,
+                        "required": true,
                         "type": "string"
                     },
                     {
@@ -63,12 +66,6 @@
                     "application/json"
                 ],
                 "parameters": [
-                    {
-                        "name": "x-api-key",
-                        "in": "header",
-                        "required": false,
-                        "type": "string"
-                    },
                     {
                         "name": "Authorization",
                         "in": "header",
@@ -122,7 +119,7 @@
                     {
                         "name": "Authorization",
                         "in": "header",
-                        "required": false,
+                        "required": true,
                         "type": "string"
                     },
                     {
@@ -177,7 +174,7 @@
                     {
                         "name": "Authorization",
                         "in": "header",
-                        "required": false,
+                        "required": true,
                         "type": "string"
                     },
                     {
@@ -254,7 +251,7 @@
                     {
                         "name": "Authorization",
                         "in": "header",
-                        "required": false,
+                        "required": true,
                         "type": "string"
                     },
                     {
@@ -291,7 +288,7 @@
                     {
                         "name": "Authorization",
                         "in": "header",
-                        "required": false,
+                        "required": true,
                         "type": "string"
                     },
                     {
@@ -335,7 +332,7 @@
                     {
                         "name": "Authorization",
                         "in": "header",
-                        "required": false,
+                        "required": true,
                         "type": "string"
                     },
                     {
