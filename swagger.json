@@ -113,7 +113,7 @@
         "/contacts": {
             "post": {
                "tags":["Contacts"],
-              "description": "Create contact or replace if exisits",
+              "description": "Create contact or replace if exists",
                 "operationId": "createOrReplaceContact",
                 "consumes": [
                     "application/json"
@@ -171,7 +171,7 @@
             },
             "put": {
               "tags":["Contacts"],
-              "description": "Create contact or update if exisits",
+              "description": "Create contact or update if exists",
                 "operationId": "createOrUpdateContact",
                 "consumes": [
                     "application/json"
@@ -251,7 +251,7 @@
         "/contacts/list": {
             "post": {
               "tags":["Contacts"],
-              "description": "Create contact list or replace if exisits",
+              "description": "Create contact list or replace if exists",
                 "operationId": "createOrReplaceContactList",
                 "consumes": [
                     "application/json"
@@ -291,7 +291,7 @@
             },
             "put": {
               "tags":["Contacts"],
-              "description": "Create contact list or update if exisits",
+              "description": "Create contact list or update if exists",
                 "operationId": "createOrUpdateContactList",
                 "consumes": [
                     "application/json"
