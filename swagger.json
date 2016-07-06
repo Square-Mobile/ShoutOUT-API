@@ -2,7 +2,7 @@
     "swagger": "2.0",
     "info": {
         "version": "7.0.0",
-        "title": "ShoutOUT API Reference"
+        "title": "API Reference"
     },
     "host": "amdimbh5tf.execute-api.us-east-1.amazonaws.com",
     "basePath": "/v7",
