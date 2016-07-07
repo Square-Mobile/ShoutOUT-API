@@ -10,53 +10,6 @@
         "https"
     ],
     "paths": {
-        "/activities": {
-            "post": {
-              "tags":["Events"],
-              "description": "Create an event",
-                "operationId": "createEvent",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "body",
-                        "name": "Activity",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/Activity"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "200 response",
-                        "schema": {
-                            "$ref": "#/definitions/Response"
-                        },
-                        "headers": {
-                            "Access-Control-Allow-Origin": {
-                                "type": "string"
-                            }
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "ShoutOUTCustomAuthorizer": []
-                    }
-                ]
-            }
-        },
         "/activities/records": {
             "post": {
                "tags":["Activities"],
@@ -482,31 +435,6 @@
                 },
                 "status": {
                     "type": "string"
-                }
-            }
-        },
-        "Activity": {
-            "type": "object",
-            "required": [
-                "template_id",
-                "title"
-            ],
-            "properties": {
-                "title": {
-                    "type": "string"
-                },
-                "template_id": {
-                    "type": "integer"
-                },
-                "points": {
-                    "type": "number"
-                },
-                "points_rate": {
-                    "type": "number"
-                },
-                "meta_data": {
-                    "type": "object",
-                    "properties": {}
                 }
             }
         },
