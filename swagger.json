@@ -12,8 +12,10 @@
     "paths": {
         "/activities/records": {
             "post": {
-               "tags":["Activities"],
-              "description": "Create an activity for an event",
+                "tags": [
+                    "Activities"
+                ],
+                "description": "Create an activity for an event",
                 "operationId": "createActivity",
                 "consumes": [
                     "application/json"
@@ -65,8 +67,10 @@
         },
         "/contacts": {
             "post": {
-               "tags":["Contacts"],
-              "description": "Create contact or replace if exists",
+                "tags": [
+                    "Contacts"
+                ],
+                "description": "Create contact or replace if exists",
                 "operationId": "createOrReplaceContact",
                 "consumes": [
                     "application/json"
@@ -123,8 +127,10 @@
                 ]
             },
             "put": {
-              "tags":["Contacts"],
-              "description": "Create contact or update if exists",
+                "tags": [
+                    "Contacts"
+                ],
+                "description": "Create contact or update if exists",
                 "operationId": "createOrUpdateContact",
                 "consumes": [
                     "application/json"
@@ -203,8 +209,10 @@
         },
         "/contacts/list": {
             "post": {
-              "tags":["Contacts"],
-              "description": "Create contact list or replace if exists",
+                "tags": [
+                    "Contacts"
+                ],
+                "description": "Create contact list or replace if exists",
                 "operationId": "createOrReplaceContactList",
                 "consumes": [
                     "application/json"
@@ -224,7 +232,7 @@
                         "name": "ContactList",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/ContactList"
+                            "$ref": "#/definitions/ContactListRequest"
                         }
                     }
                 ],
@@ -243,8 +251,10 @@
                 ]
             },
             "put": {
-              "tags":["Contacts"],
-              "description": "Create contact list or update if exists",
+                "tags": [
+                    "Contacts"
+                ],
+                "description": "Create contact list or update if exists",
                 "operationId": "createOrUpdateContactList",
                 "consumes": [
                     "application/json"
@@ -264,7 +274,7 @@
                         "name": "ContactList",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/ContactList"
+                            "$ref": "#/definitions/ContactListRequest"
                         }
                     }
                 ],
@@ -290,9 +300,11 @@
         },
         "/messages": {
             "post": {
-              "deprecated":true,
-              "tags":["Messages"],
-              "description": "Send a direct message",
+                "deprecated": true,
+                "tags": [
+                    "Messages"
+                ],
+                "description": "Send a direct message",
                 "operationId": "sendMessage",
                 "consumes": [
                     "application/json"
@@ -438,6 +450,13 @@
                 }
             }
         },
+        "ContactListRequest": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {}
+            }
+        },
         "ContactList": {
             "type": "object",
             "properties": {
@@ -456,22 +475,25 @@
         },
         "Contact": {
             "type": "object",
-            "example":{
-              "name":{
-                "s":"Saman"
-              },
-              "mobile_number":{
-                "s":"94778766756"
-              },
-              "email":{
-                "s":"saman@test.com"
+            "example": {
+                "name": {
+                    "s": "Saman"
                 },
-                "tags":{
-                  "sS":["vegetarian","teacher"]
+                "mobile_number": {
+                    "s": "94778766756"
                 },
-                "weight":{
-                  "n":"65"
-                  }
+                "email": {
+                    "s": "saman@test.com"
+                },
+                "tags": {
+                    "sS": [
+                        "vegetarian",
+                        "teacher"
+                    ]
+                },
+                "weight": {
+                    "n": "65"
+                }
             }
         },
         "Response": {
