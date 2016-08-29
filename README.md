@@ -36,35 +36,27 @@ This document provide required details to connect with ShoutOUT REST API for thi
 ```curl
 curl -X PUT 
 --header 'Content-Type: application/json' 
---header 'Accept: application/json' --header 'Authorization: Apikey ' 
+--header 'Accept: application/json' 
+--header 'Authorization: Apikey <API_KEY>' 
 -d '{
   "name": {
     "s": "Saman"
   },
  "user_id": {
-    "s": "uid001"
+    "s": "UID001"
   },
   "mobile_number": {
-    "s": "94778766756"
+    "s": "94771234567"
   },
   "email": {
     "s": "saman@test.com"
-  },
-  "tags": {
-    "sS": [
-      "vegetarian",
-      "teacher"
-    ]
-  },
-  "weight": {
-    "n": "65"
   }
 }' 'https://amdimbh5tf.execute-api.us-east-1.amazonaws.com/v7/contacts'
 ```
 Above the notation s,sS and n are for defining the data type as mentioned below
-s - string
-sS - string set (like an array of strings)
-n - number
+* s - string
+* sS - string set (like an array of strings)
+* n - number
 
 ## Track Activity
 ### Sample CURL Command
@@ -72,14 +64,34 @@ n - number
 curl -X POST 
 --header 'Content-Type: application/json' 
 --header 'Accept: application/json' 
---header 'Authorization: Apikey ' 
+--header 'Authorization: Apikey <API_KEY>' 
 -d '{
-  "user_id": "uid001",
-  "activity_name": "New Student",
+  "user_id": "UID001",
+  "activity_name": "Sample Activity",
   "activity_data": {
-	"category":"starter"
+	"param_1":"param 1",
+	"param_2":"param 2"
   }
 }' 'https://amdimbh5tf.execute-api.us-east-1.amazonaws.com/v7/activities/records'
 ```
-
+## Send Message
+### Sample CURL Command
+```curl
+curl -X POST 
+--header 'Content-Type: application/json' 
+--header 'Accept: application/json' 
+--header 'Authorization: Apikey <API_KEY>' 
+-d '{
+  "source": "ShoutOUT",
+  "destinations": [
+    "94718121914"
+  ],
+  "transports": [
+    "sms"
+  ],
+  "content": {
+    "sms": "Sent via ShoutOUT Gateway"
+  }
+}' 'https://amdimbh5tf.execute-api.us-east-1.amazonaws.com/v7/messages'
+```
 
