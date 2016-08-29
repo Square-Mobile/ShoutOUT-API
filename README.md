@@ -8,23 +8,23 @@ This document provide required details to connect with ShoutOUT REST API for thi
 ## Overview
 * [API Reference](http://docs.getshoutout.com/#/default)
 
-* JAVA SDK
+* JAVA
 
-    Recommended to use java V1.7 or above. will update soon.
+    [JAVA SDK](https://github.com/Square-Mobile/shoutout-sdk-java)
 
-* JavaScript SDK
+* JavaScript
 
     You can find the instructions and SDK from following repository. 
     
     [JavaScript SDK](https://github.com/Square-Mobile/ShoutOUT-SDK-JavaScript)
 
-* PHP SDK
+* PHP
 
     Required PHP V5.0 or above. All the methods will return Response object which having properties, http status and the response data received from the API. You can use those details as described in the relevant method. You can find the instructions and source code from following repository. 
     
     [PHP SDK](https://github.com/Square-Mobile/ShoutOUT-SDK-PHP)
     
-* NodeJS SDK
+* NodeJS
     
     [NodeJS SDK](https://github.com/Square-Mobile/shoutout-sdk-nodejs)
 
