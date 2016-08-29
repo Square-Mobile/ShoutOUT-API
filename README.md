@@ -32,7 +32,7 @@ This document provide required details to connect with ShoutOUT REST API for thi
 
 
 ## Create or Update Contact
-
+### Sample CURL Command
 ```curl
 curl -X PUT 
 --header 'Content-Type: application/json' 
@@ -61,6 +61,25 @@ curl -X PUT
   }
 }' 'https://amdimbh5tf.execute-api.us-east-1.amazonaws.com/v7/contacts'
 ```
+Above the notation s,sS and n are for defining the data type as mentioned below
+s - string
+sS - string set (like an array of strings)
+n - number
 
+## Track Activity
+### Sample CURL Command
+```curl
+curl -X POST 
+--header 'Content-Type: application/json' 
+--header 'Accept: application/json' 
+--header 'Authorization: Apikey ' 
+-d '{
+  "user_id": "uid001",
+  "activity_name": "New Student",
+  "activity_data": {
+	"category":"starter"
+  }
+}' 'https://amdimbh5tf.execute-api.us-east-1.amazonaws.com/v7/activities/records'
+```
 
 
