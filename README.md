@@ -84,7 +84,7 @@ curl -X POST
 -d '{
   "source": "ShoutOUT",
   "destinations": [
-    "94718121914"
+    "94771234567"
   ],
   "transports": [
     "sms"
