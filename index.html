@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>ShoutOUT API by Square-Mobile</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>ShoutOUT API</h1>
+        <p>Integrate with ShoutOUT</p>
+
+        <p class="view"><a href="https://github.com/Square-Mobile/shoutout-api">View the Project on GitHub <small>Square-Mobile/shoutout-api</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/Square-Mobile/shoutout-api/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/Square-Mobile/shoutout-api/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/Square-Mobile/shoutout-api">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="shoutout-api" class="anchor" href="#shoutout-api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ShoutOUT-API</h1>
+
+<p>ShoutOUT API Samples and Usage Instructions</p>
+
+<h2>
+<a id="intoduction" class="anchor" href="#intoduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Intoduction</h2>
+
+<p>This document provide required details to connect with ShoutOUT REST API for third parties. All parameters in the POST requests should be url-encoded. You can use either SDKs (recommended) or direct HTTP call to the API.  You can find the source code repositories and instructions for each SDK as mentioned in Section 2. Therefore, this document only focus on using API without SDK.</p>
+
+<h2>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Overview</h2>
+
+<ul>
+<li><p><a href="http://docs.getshoutout.com/#/default">API Reference</a></p></li>
+<li>
+<p>JAVA</p>
+
+<p><a href="https://github.com/Square-Mobile/shoutout-sdk-java">JAVA SDK</a></p>
+</li>
+<li>
+<p>JavaScript</p>
+
+<p>You can find the instructions and SDK from following repository. </p>
+
+<p><a href="https://github.com/Square-Mobile/ShoutOUT-SDK-JavaScript">JavaScript SDK</a></p>
+</li>
+<li>
+<p>PHP</p>
+
+<p>Required PHP V5.0 or above. All the methods will return Response object which having properties, http status and the response data received from the API. You can use those details as described in the relevant method. You can find the instructions and source code from following repository. </p>
+
+<p><a href="https://github.com/Square-Mobile/ShoutOUT-SDK-PHP">PHP SDK</a></p>
+</li>
+<li>
+<p>NodeJS</p>
+
+<p><a href="https://github.com/Square-Mobile/shoutout-sdk-nodejs">NodeJS SDK</a></p>
+
+<p><a href="https://www.npmjs.com/package/shoutout-sdk">NodeJS SDK NPM</a></p>
+</li>
+</ul>
+
+<h2>
+<a id="create-or-update-contact" class="anchor" href="#create-or-update-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Create or Update Contact</h2>
+
+<h3>
+<a id="sample-curl-command" class="anchor" href="#sample-curl-command" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Sample CURL Command</h3>
+
+<pre lang="curl"><code>curl -X PUT 
+--header 'Content-Type: application/json' 
+--header 'Accept: application/json' 
+--header 'Authorization: Apikey &lt;API_KEY&gt;' 
+-d '{
+  "name": {
+    "s": "Saman"
+  },
+ "user_id": {
+    "s": "UID001"
+  },
+  "mobile_number": {
+    "s": "94771234567"
+  },
+  "email": {
+    "s": "saman@test.com"
+  }
+}' 'https://amdimbh5tf.execute-api.us-east-1.amazonaws.com/v7/contacts'
+</code></pre>
+
+<p>Above the notation s,sS and n are for defining the data type as mentioned below</p>
+
+<ul>
+<li>s - string</li>
+<li>sS - string set (like an array of strings)</li>
+<li>n - number</li>
+</ul>
+
+<h2>
+<a id="track-activity" class="anchor" href="#track-activity" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Track Activity</h2>
+
+<h3>
+<a id="sample-curl-command-1" class="anchor" href="#sample-curl-command-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Sample CURL Command</h3>
+
+<pre lang="curl"><code>curl -X POST 
+--header 'Content-Type: application/json' 
+--header 'Accept: application/json' 
+--header 'Authorization: Apikey &lt;API_KEY&gt;' 
+-d '{
+  "user_id": "UID001",
+  "activity_name": "Sample Activity",
+  "activity_data": {
+    "param_1":"param 1",
+    "param_2":"param 2"
+  }
+}' 'https://amdimbh5tf.execute-api.us-east-1.amazonaws.com/v7/activities/records'
+</code></pre>
+
+<h2>
+<a id="send-message" class="anchor" href="#send-message" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Send Message</h2>
+
+<h3>
+<a id="sample-curl-command-2" class="anchor" href="#sample-curl-command-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Sample CURL Command</h3>
+
+<pre lang="curl"><code>curl -X POST 
+--header 'Content-Type: application/json' 
+--header 'Accept: application/json' 
+--header 'Authorization: Apikey &lt;API_KEY&gt;' 
+-d '{
+  "source": "ShoutOUT",
+  "destinations": [
+    "94771234567"
+  ],
+  "transports": [
+    "sms"
+  ],
+  "content": {
+    "sms": "Sent via ShoutOUT Gateway"
+  }
+}' 'https://amdimbh5tf.execute-api.us-east-1.amazonaws.com/v7/messages'
+</code></pre>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/Square-Mobile">Square-Mobile</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
