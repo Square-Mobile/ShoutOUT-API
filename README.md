@@ -31,5 +31,36 @@ This document provide required details to connect with ShoutOUT REST API for thi
     [NodeJS SDK NPM](https://www.npmjs.com/package/shoutout-sdk)
 
 
+## Create or Update Contact
+
+```curl
+curl -X PUT 
+--header 'Content-Type: application/json' 
+--header 'Accept: application/json' --header 'Authorization: Apikey ' 
+-d '{
+  "name": {
+    "s": "Saman"
+  },
+ "user_id": {
+    "s": "uid001"
+  },
+  "mobile_number": {
+    "s": "94778766756"
+  },
+  "email": {
+    "s": "saman@test.com"
+  },
+  "tags": {
+    "sS": [
+      "vegetarian",
+      "teacher"
+    ]
+  },
+  "weight": {
+    "n": "65"
+  }
+}' 'https://amdimbh5tf.execute-api.us-east-1.amazonaws.com/v7/contacts'
+```
+
 
 
