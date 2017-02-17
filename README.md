@@ -82,7 +82,7 @@ curl -X POST
 --header 'Accept: application/json' 
 --header 'Authorization: Apikey <API_KEY>' 
 -d '{
-  "source": "ShoutOUT",
+  "source": "ShoutDEMO",
   "destinations": [
     "94771234567"
   ],
