@@ -1,97 +1,72 @@
-# ShoutOUT-API
-ShoutOUT API Samples and Usage Instructions
+## ShoutOUT Developer Hub
 
-## Intoduction
+Usage instructions for [ShoutOUT](https://getshoutout.com/) SDKs, API and Sample Implementations
 
-This document provide required details to connect with ShoutOUT REST API for third parties. All parameters in the POST requests should be url-encoded. You can use either SDKs (recommended) or direct HTTP call to the API.  You can find the source code repositories and instructions for each SDK as mentioned in Section 2. Therefore, this document only focus on using API without SDK.
+### Introduction
 
-## Overview
-* [API Reference](http://docs.getshoutout.com/#/default)
+This document provides required details to connect with ShoutOUT REST API from third party applications using standard SDKs and HTTP clients.
 
-* JAVA
+### SDKs
 
-    [JAVA SDK](https://github.com/Square-Mobile/shoutout-sdk-java)
+- [Node SDK](https://www.npmjs.com/package/shoutout-sdk)
+- [PHP SDK](https://packagist.org/packages/shoutoutlabs/shoutout-sdk)
+- [Java SDK](https://github.com/shoutout-labs/shoutout-sdk-java)
 
-* JavaScript
+### REST API
 
-    You can find the instructions and SDK from following repository. 
-    
-    [JavaScript SDK](https://github.com/Square-Mobile/ShoutOUT-SDK-JavaScript)
+#### Create or Update Contact(s)
 
-* PHP
+**Sample curl command**
 
-    Required PHP V5.0 or above. All the methods will return Response object which having properties, http status and the response data received from the API. You can use those details as described in the relevant method. You can find the instructions and source code from following repository. 
-    
-    [PHP SDK](https://github.com/Square-Mobile/ShoutOUT-SDK-PHP)
-    
-* NodeJS
-    
-    [NodeJS SDK](https://github.com/Square-Mobile/shoutout-sdk-nodejs)
-
-    [NodeJS SDK NPM](https://www.npmjs.com/package/shoutout-sdk)
-
-
-## Create or Update Contact
-### Sample CURL Command
 ```curl
-curl -X PUT 
+curl -X POST 
 --header 'Content-Type: application/json' 
 --header 'Accept: application/json' 
 --header 'Authorization: Apikey <API_KEY>' 
--d '{
-  "name": {
-    "s": "Saman"
-  },
- "user_id": {
-    "s": "UID001"
-  },
-  "mobile_number": {
-    "s": "94771234567"
-  },
-  "email": {
-    "s": "saman@test.com"
-  }
-}' 'https://amdimbh5tf.execute-api.us-east-1.amazonaws.com/v7/contacts'
+-d '[{
+        user_id: '94777123456',
+        mobile_number: '94777123456',
+        email: 'duke@test.com',
+        name: 'Duke',
+        tags: ['lead']
+    }]' 'https://getshoutout.com/api/v8/contacts'
 ```
-Above the notation s,sS and n are for defining the data type as mentioned below
-* s - string
-* sS - string set (like an array of strings)
-* n - number
 
-## Track Activity
-### Sample CURL Command
+#### Create Activity
+
+**Sample curl command**
+
 ```curl
 curl -X POST 
 --header 'Content-Type: application/json' 
 --header 'Accept: application/json' 
 --header 'Authorization: Apikey <API_KEY>' 
 -d '{
-  "user_id": "UID001",
-  "activity_name": "Sample Activity",
-  "activity_data": {
-	"param_1":"param 1",
-	"param_2":"param 2"
-  }
-}' 'https://amdimbh5tf.execute-api.us-east-1.amazonaws.com/v7/activities/records'
+        userId: '94777123456',
+        activityName: 'Sample Activity',
+        activityData: {
+            param1: 'val1',
+            param2: 'val2',
+            param3: 'val3'
+        }
+    }' 'https://getshoutout.com/v8/activities'
 ```
-## Send Message
-### Sample CURL Command
+
+#### Send Message
+
+**Sample curl command**
+
 ```curl
 curl -X POST 
 --header 'Content-Type: application/json' 
 --header 'Accept: application/json' 
 --header 'Authorization: Apikey <API_KEY>' 
 -d '{
-  "source": "ShoutDEMO",
-  "destinations": [
-    "94771234567"
-  ],
-  "transports": [
-    "sms"
-  ],
-  "content": {
-    "sms": "Sent via ShoutOUT Gateway"
-  }
-}' 'https://amdimbh5tf.execute-api.us-east-1.amazonaws.com/v7/messages'
+        source: 'ShoutDEMO',
+        destinations: ['94777123456'],
+        content: {
+            sms: 'Sent via SMS Gateway'
+        },
+        transports: ['sms']
+    }' 'https://getshoutout.com/v7/messages'
 ```
-
